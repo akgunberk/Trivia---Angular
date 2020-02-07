@@ -1,0 +1,47 @@
+<body>
+  <div *ngIf="!done && questions != null && !isFalse">
+    <div *ngIf="proceed">
+      <span>Question : {{ n + 1 }} </span>
+      <span class="question" id="{{ n }}">{{ questions[n] }}</span>
+      <div class="container">
+        <div class="row" *ngFor="let answer of answers[n]; let i = index">
+          <div class="col-sm">
+            <button
+              class="btn btn-success"
+              id="{{ i }}"
+              (click)="checkTrue(i, n)"
+            >
+              {{ answer }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!proceed && !isFalse">
+    <h3>
+      {{ n === -1 ? "Good Luck!" : "Correct!" }}
+    </h3>
+
+    <button class="btn btn-danger" (click)="increase()">
+      {{ n === -1 ? "Start" : "Next" }}
+    </button>
+  </div>
+
+  <div *ngIf="isFalse">
+    <h3>
+      Want to try again?
+    </h3>
+    <button class="btn btn-info" (click)="reset()">Try Again</button>
+  </div>
+
+  <div *ngIf="done">
+    <h3>
+      Congrats!
+    </h3>
+    <button class="btn btn-info" (click)="reset()">Play Again!</button>
+  </div>
+</body>
+
+<h1>{{ title }}</h1>
