@@ -1,4 +1,5 @@
 # Trivia Game developed with Angular
+# The game is live -> https://trivia-with-angular.now.sh/
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
 
